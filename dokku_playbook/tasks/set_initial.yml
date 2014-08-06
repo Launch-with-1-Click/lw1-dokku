@@ -1,0 +1,9 @@
+- copy:
+    src: files/first_boot
+    dest: /etc/cron.d/first_boot
+    owner: root
+    group: root
+    mode: 644
+- template:
+    src: templates/initial.rb
+    dest: /opt/lw1/initial.rb

@@ -1,0 +1,10 @@
+---
+- hosts: all
+  sudo: yes
+  vars:
+    dokku_tag: v0.2.3
+  tasks:
+    - include: tasks/depend_packages.yml
+    - sysctl: name=vm.swappiness value=1 state=present
+    - include: tasks/install_dokku.yml
+    - include: tasks/set_initial.yml

@@ -1,0 +1,6 @@
+- get_url: url=https://raw.githubusercontent.com/progrium/dokku/v0.2.3/bootstrap.sh
+           dest=/opt/lw1/dokku_bootstrap.sh
+- shell: DOKKU_TAG={{ dokku_tag }} bash /opt/lw1/dokku_bootstrap.sh
+         creates=/home/dokku
+- file: path=/home/dokku/tls/ owner=dokku group=dokku mode=0755 state=directory
+- command: sed 's/^#ssl_/ssl_/g' /etc/nginx/conf.d/dokku.conf -i

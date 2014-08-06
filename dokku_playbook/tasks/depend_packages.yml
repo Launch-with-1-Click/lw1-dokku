@@ -1,0 +1,9 @@
+---
+- apt: name={{ item }}
+  with_items:
+    - git
+    - fail2ban
+    - wget
+    - curl
+    - software-properties-common
+    - build-essential
